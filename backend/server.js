@@ -1,11 +1,17 @@
-const express = require("express");
 
-const app = express();
+import express from "express";
+import dotenv from "dotenv";
+
+const app = express(); 
+
+dotenv.config();
+const PORT = process.env.PORT || 5001;
 
 app.get("/", (req, res) => {
     // root route http://localhost:5001/
-    res.send("Hello World");
+    res.send("Hello World!!");
 });
 
-app.listen(5001, () => console.log("Server is running on port 5001"));
+app.listen(PORT, () =>  console.log(`Server is running on port ${PORT}`));
+
  
