@@ -12,6 +12,7 @@ const SearchInput = () => {
   )
 }
 
+export default SearchInput
 
 
 //starter code for this file
