@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -20,7 +21,7 @@ const Login = () => {
     
             <button type='submit' className='w-full py-2 mt-6 text-lg font-semibold text-white bg-blue-500 rounded-lg hover:bg-blue-700'>Login</button>
 
-            dont have an account yet? <a href='/register' className='text-blue-500'>Register</a>
+            dont have an account yet? <Link to='/signup' className='text-blue-500'>Register</Link>
             <div>
                 <button className="btn btn-block btn-sm mt-2">Login</button>
             </div>
