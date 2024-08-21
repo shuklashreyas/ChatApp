@@ -84,8 +84,9 @@ const SignUp = () => {
             Already have an account?
           </Link>
 
-          <button type='submit' className='w-full py-2 mt-6 text-lg font-semibold text-white bg-blue-500 rounded-lg hover:bg-blue-700'>
-            Sign Up
+          <button type='submit' className='w-full py-2 mt-6 text-lg font-semibold text-white bg-blue-500 rounded-lg hover:bg-blue-700'
+          disabled = {loading}>
+            {loading ? <span className = 'loading loading-spinner'></span> : 'Sign Up'}
           </button>
         </form>
       </div>
