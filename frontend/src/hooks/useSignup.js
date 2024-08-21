@@ -1,20 +1,19 @@
-import React from 'react'
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
 
 const useSignup = () => {
     const [loading, setLoading] = useState(false);
 
-    const signup = async({fullname,username,password,confirmPassword,gender}) => {
-        handleInputError = handleInputError({fullname,username,password,confirmPassword})
+    const signup = async({fullName,username,password,confirmPassword,gender}) => {
+        const success = handleInputError({fullName,username,password,confirmPassword,gender})
         if(!success) return ;
 
+        setLoading(true);
         try{
-
-            const res = await fetch('/api/auth/signup', {
+            const res = await fetch("/api/auth/signup", {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ fullname, username, password, confirmPassword, gender })
+                body: JSON.stringify({ fullName, username, password, confirmPassword, gender })
             });
             const data = await res.json();
             console.log(data);
@@ -33,8 +32,8 @@ export default useSignup;
 
 
 
-function handleInputError({fullname,username,password,confirmPassword, gender}){
-    if(!fullname || !username || !password || !confirmPassword || !gender){
+function handleInputError({fullName,username,password,confirmPassword, gender}){
+    if(!fullName || !username || !password || !confirmPassword || !gender){
         toast.error('Please fill in all fields');
         return false;
     }
