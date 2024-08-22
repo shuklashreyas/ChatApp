@@ -14,7 +14,7 @@ const Conversations = () => {
            key={conversation._id} 
            conversation={conversation}
            emoji = {getRandomEmoji()}
-           lastIdx = {idx === conversations.length - 1}
+           lastIdx = {idx === conversations.length - 1} 
             />
         )) }
         {loading ? <span className='loading loading-spinner mx-auto'></span> : null}
