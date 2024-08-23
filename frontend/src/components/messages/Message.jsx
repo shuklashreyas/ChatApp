@@ -3,7 +3,7 @@ import React from 'react'
 const Message = () => {
   return (
     <div className = 'chat chat-end'>
-        <div clasName = 'chat-image avatar'>
+        <div className = 'chat-image avatar'>
         <div className = 'w-10' rounded>
         <img 
         alt ='Tailwind CSS chat bubble component'
@@ -24,7 +24,7 @@ export default Message
 // const Message = () => {
 //   return (
 //     <div className = 'chat chat-end'>
-//         <div clasName = 'chat-image avatar'>
+//         <div clasdName = 'chat-image avatar'>
 //         <div className = 'w-10' rounded>
 //         <img 
 //         alt ='Tailwind CSS chat bubble component'
