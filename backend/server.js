@@ -3,6 +3,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import path from "path";
+import cors from "cors";
 
 import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
@@ -31,10 +32,7 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
 });
 
-// app.get("/", (req, res) => {
-//     root route http://localhost:5001/
-//     res.send("Hello World!!");
-// });
+app.options('*', cors());
 
 
 
