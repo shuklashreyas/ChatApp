@@ -16,6 +16,14 @@ A real-time chat application built using the MERN stack (MongoDB, Express.js, Re
 - **Backend:** Node.js, Express.js, MongoDB, Socket.io, JWT, bcrypt.js
 
 ## Installation
+- For simple usage running locally :
+
+- npm run server
+  
+- cd frontend
+- npm run dev
+
+  
 
 1. **Clone the repository:**
     ```bash
