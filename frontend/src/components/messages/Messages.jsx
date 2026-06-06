@@ -15,7 +15,7 @@ const Messages = () => {
   },[messages]);
 
   return (
-    <div className='px-4 flex-1 overflow-auto'>
+    <div className='px-4 flex-1 overflow-auto bg-gradient-to-b from-slate-900 to-slate-950'>
         {!loading && messages.length > 0 && messages.map((message) => (
           <div key={message._id}
            ref = {lastMessageRef}>
@@ -27,7 +27,7 @@ const Messages = () => {
 
         {loading && [...Array(3)].map((_, idx) => <MessageSkeleton key={idx} />)}
         {!loading && messages.length === 0 && (
-      <p className='text-center'>Send a message to start the conversation</p>
+      <p className='text-center text-slate-400 mt-8'>Send a message to start the conversation</p>
     )}
     </div>
     

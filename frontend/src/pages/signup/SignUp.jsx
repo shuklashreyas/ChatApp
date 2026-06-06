@@ -25,80 +25,88 @@ const SignUp = () => {
 
 	return (
 		<div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
-			<div className='w-full p-6 rounded-lg shadow-md bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0'>
-				<h1 className='text-3xl font-semibold text-center text-gray-300'>
-					Sign Up <span className='text-blue-500'> ChatApp</span>
+			<div className='w-full p-8 rounded-2xl shadow-2xl bg-gradient-to-br from-slate-800 to-slate-900 border border-slate-700'>
+				<h1 className='text-4xl font-bold text-center text-white mb-2'>
+					Create Account
 				</h1>
+				<p className='text-center text-slate-400 mb-8'>Join our community today</p>
 
 				<form onSubmit={handleSubmit}>
-					<div>
+					<div className='mb-4'>
 						<label className='label p-2'>
-							<span className='text-base label-text'>Full Name</span>
+							<span className='text-sm font-semibold text-slate-200'>Full Name</span>
 						</label>
 						<input
 							type='text'
 							placeholder='John Doe'
-							className='w-full input input-bordered  h-10'
+							className='w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition'
 							value={inputs.fullName}
 							onChange={(e) => setInputs({ ...inputs, fullName: e.target.value })}
 						/>
 					</div>
 
-					<div>
+					<div className='mb-4'>
 						<label className='label p-2 '>
-							<span className='text-base label-text'>Username</span>
+							<span className='text-sm font-semibold text-slate-200'>Username</span>
 						</label>
 						<input
 							type='text'
 							placeholder='johndoe'
-							className='w-full input input-bordered h-10'
+							className='w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition'
 							value={inputs.username}
 							onChange={(e) => setInputs({ ...inputs, username: e.target.value })}
 						/>
 					</div>
 
-					<div>
-						<label className='label'>
-							<span className='text-base label-text'>Password</span>
+					<div className='mb-4'>
+						<label className='label p-2'>
+							<span className='text-sm font-semibold text-slate-200'>Password</span>
 						</label>
 						<input
 							type='password'
-							placeholder='Enter Password'
-							className='w-full input input-bordered h-10'
+							placeholder='Enter your password'
+							className='w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition'
 							value={inputs.password}
 							onChange={(e) => setInputs({ ...inputs, password: e.target.value })}
 						/>
 					</div>
 
-					<div>
-						<label className='label'>
-							<span className='text-base label-text'>Confirm Password</span>
+					<div className='mb-4'>
+						<label className='label p-2'>
+							<span className='text-sm font-semibold text-slate-200'>Confirm Password</span>
 						</label>
 						<input
 							type='password'
-							placeholder='Confirm Password'
-							className='w-full input input-bordered h-10'
+							placeholder='Confirm your password'
+							className='w-full px-4 py-3 rounded-lg bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition'
 							value={inputs.confirmPassword}
 							onChange={(e) => setInputs({ ...inputs, confirmPassword: e.target.value })}
 						/>
 					</div>
 
-					<GenderCheckbox onCheckboxChange={handleCheckboxChange} selectedGender={inputs.gender} />
-
-					<Link
-						to={"/login"}
-						className='text-sm hover:underline hover:text-blue-600 mt-2 inline-block'
-						href='#'
-					>
-						Already have an account?
-					</Link>
+					<div className='mb-6'>
+						<GenderCheckbox onCheckboxChange={handleCheckboxChange} selectedGender={inputs.gender} />
+					</div>
 
 					<div>
-						<button className='btn btn-block btn-sm mt-2 border border-slate-700' disabled={loading}>
-							{loading ? <span className='loading loading-spinner'></span> : "Sign Up"}
+						<button 
+							className='w-full px-4 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold hover:from-blue-700 hover:to-blue-800 transition disabled:opacity-50 disabled:cursor-not-allowed' 
+							disabled={loading}
+						>
+							{loading ? <span className='loading loading-spinner'></span> : "Create Account"}
 						</button>
 					</div>
 				</form>
+
+				<div className='mt-6 text-center'>
+					<p className='text-slate-400'>Already have an account? {' '}</p>
+					<Link
+						to="/login"
+						className='text-blue-400 hover:text-blue-300 font-semibold transition'
+					>
+						Sign in
+					</Link>
+				</div>
 			</div>
 		</div>
 	);
