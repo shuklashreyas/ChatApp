@@ -2,6 +2,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
+import path from "path";
+import cors from "cors";
 
 import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
@@ -10,6 +12,7 @@ import { app, server } from "./socket/socket.js";
 
 import connectToMongoDB from "./db/connectToMongoDB.js";
 
+const __dirname = path.resolve();
 
 
 const PORT = process.env.PORT || 5001; 
@@ -23,10 +26,13 @@ app.use("/api/auth",authRoutes);
 app.use("/api/messages",messageRoutes);
 app.use("/api/users",userRoutes);
 
-// app.get("/", (req, res) => {
-//     root route http://localhost:5001/
-//     res.send("Hello World!!");
-// });
+app.use(express.static(path.join(__dirname, "/frontend/dist")));
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"));
+});
+
+app.options('*', cors());
 
 
 
